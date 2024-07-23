@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Adventure</title>
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+</head>
+<body>
+    <div th:replace="fragments :: navbar(null)"></div>
+    <div id="content">
+        <label>Log in</label>
+        <form method="post" th:action="@{/login}">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>
+                            <label for="username">Username</label>
+                        </th>
+                        <td>
+                            <input type="text" id="username" name="username" placeholder="Username">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="password">Password</label>
+                        </th>
+                        <td>
+                            <input type="password" id="password" name="password" placeholder="Password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <button type="submit">Log in</button>
+                        </th>
+                        <td>
+                            <div th:if="${param.error}">Username or password incorrect!</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div>
+            Not registered?
+            <a th:href="@{/register}" style="color: rgb(13, 0, 177);text-decoration: underline;">Register here</a>
+        </div>
+    </div>
+    <div th:replace="fragments :: hill"></div>
+</body>
+</html>

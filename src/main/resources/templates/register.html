@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Adventure</title>
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+</head>
+<body>
+    <div th:replace="fragments :: navbar(null)"></div>
+    <div>
+        <div id="content">
+            <label>Register</label>
+            <form method="post" th:action="@{/register/save}" th:object="${player}">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <label for="username">Username</label>
+                            </th>
+                            <td>
+                                <input
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        placeholder="Username"
+                                        th:field="*{username}"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="password">Password</label>
+                            </th>
+                            <td>
+                                <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        th:field="*{password}"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <button type="submit">Sign up</button>
+                            </th>
+                            <td>
+                                <div th:if="${param.success}">You have successfully registered!</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <div>
+                Already registered?
+                <a th:href="@{/login}" style="color: rgb(13, 0, 177);text-decoration: underline;"> Log in here</a>
+            </div>
+        </div>
+        <div th:replace="fragments :: hill"></div>
+    </div>
+</body>
+</html>

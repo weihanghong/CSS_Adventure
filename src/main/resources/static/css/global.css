@@ -1,0 +1,77 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(rgb(0, 119, 255), rgb(255, 255, 255));
+    height: 80px;
+    padding: 10px;
+}
+
+a {
+    appearance: none;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+table {
+    border-spacing: 8px;
+}
+
+#menus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#menus > a {
+    box-shadow: 0 0 6px 2px rgb(0, 0, 0);
+    padding: 8px;
+    border-radius: 30px;
+    width: 100px;
+    text-align: center;
+}
+
+#content {
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hill {
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(32, 228, 0) 75%);
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.grass-pile {
+    display: flex;
+    align-items: flex-end;
+}
+
+.grass {
+    height: 20px;
+    width: 5px;
+    background-color: rgb(23, 205, 0);
+    border-radius: 10px;
+}
+
+.enemy {
+    height: 40px;
+    width: 40px;
+    background-color: rgb(234, 0, 0);
+    position: absolute;
+    right: 10px;
+    transition: right 0.2s linear;
+}
+
+#player {
+    height: 40px;
+    width: 40px;
+    background-color: rgb(0, 44, 255);
+    position: absolute;
+    left: 20px;
+}

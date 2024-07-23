@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Adventure</title>
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+</head>
+<body>
+    <div th:replace="fragments :: navbar(${player})"></div>
+    <div id="content">
+        <div id="menus">
+            <a th:href="@{/play}">Play</a>
+            <a th:href="@{/character}">Character</a>
+            <a th:href="@{/achievements}">Achievement</a>
+            <a th:href="@{leaderboard}">Leaderboard</a>
+        </div>
+    </div>
+    <div th:replace="fragments :: hill"></div>
+</body>
+</html>

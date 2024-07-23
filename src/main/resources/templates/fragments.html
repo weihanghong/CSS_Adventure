@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Adventure</title>
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+</head>
+<body>
+    <div th:fragment="navbar(player)">
+        <nav id="navbar">
+            <a th:href="@{/lobby}" th:if="${player}">Home</a>
+            <a th:href="@{/}" th:unless="${player}">Home</a>
+            <div th:if="${player}">
+                <div th:text="${player.username}"></div>
+            </div>
+            <div th:if="${player==null}">
+                <a th:href="@{/login}">Login</a>
+                /
+                <a th:href="@{/register}">Register</a>
+            </div>
+            <div th:if="${player}">
+                <a th:href="@{/logout}">Log out</a>
+            </div>
+        </nav>
+    </div>
+    <div th:fragment="grass">
+        <div class="grass" style="rotate: -45deg"></div>
+        <div class="grass" style="height: 25px"></div>
+        <div class="grass" style="rotate: 45deg"></div>
+    </div>
+    <div th:fragment="hill" id="hill">
+        <div th:include="this :: grass" class="grass-pile" style="height: 70%"></div>
+        <div th:include="this :: grass" class="grass-pile" style="height: 90%"></div>
+        <div th:include="this :: grass" class="grass-pile" style="height: 50%"></div>
+        <div th:include="this :: grass" class="grass-pile" style="height: 60%"></div>
+        <div th:include="this :: grass" class="grass-pile" style="height: 80%"></div>
+        <div th:include="this :: grass" class="grass-pile" style="height: 40%"></div>
+    </div>
+
+</body>
+</html>
