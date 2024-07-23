@@ -10,4 +10,5 @@ public interface GameService {
     void registerPlayer(Player player);
     Player findPlayerByUsername(String playerName);
     List<Player> findAllPlayers();
+    void updatePlayer(Player player, int highScore);
 }

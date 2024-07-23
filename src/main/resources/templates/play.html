@@ -10,6 +10,12 @@
     <div th:replace="fragments :: navbar(${player})"></div>
     <div id="content">
         <div id="player"></div>
+        <div id="score">Score: 0</div>
+        <form id="result" method="post" th:action="@{/play/save}" th:object="${player}">
+            <div th:text="*{'Best Score: ' + highScore}"></div>
+            <div id="result-text" th:field="*{highScore}"></div>
+            <button id="continue-button" type="submit">Continue</button>
+        </form>
     </div>
     <div th:replace="fragments :: hill"></div>
 </body>

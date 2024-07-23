@@ -45,5 +45,9 @@ public class GameServiceImpl implements GameService {
         return playerRepository.findAll();
     }
 
+    public void updatePlayer(Player player, int highScore) {
+        player.setHighScore(highScore);
+        playerRepository.save(player);
+    }
 
 }
