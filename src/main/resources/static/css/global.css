@@ -122,3 +122,41 @@ table {
     border-radius: 10px;
     padding: 4px;
 }
+
+.blue {
+    height: 80px;
+    width: 40px;
+    background-image: radial-gradient(closest-side at 65% 25%,rgba(47, 255, 0, 0.65) 30%, rgba(0, 119, 255, 0.94));
+    border-radius: 6px;
+    position: absolute;
+    left: 30%;
+}
+
+.yellow {
+    height: 80px;
+    width: 40px;
+    background-image: radial-gradient(closest-side at 65% 25%,rgba(47, 255, 0, 0.65) 30%, rgba(239, 255, 0, 0.94));
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+}
+
+.shadow {
+    height: 80px;
+    width: 40px;
+    background-image: radial-gradient(closest-side at 65% 25%,rgba(47, 255, 0, 0.65) 30%, rgba(0, 0, 0, 0.94));
+    border-radius: 6px;
+    position: absolute;
+    left: 70%;
+}
+
+#ranking > tbody > tr > th, #ranking > tbody > tr > td {
+    text-align: left;
+}
+
+.achievement {
+    background-color: rgb(205, 205, 205);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 8px;
+}

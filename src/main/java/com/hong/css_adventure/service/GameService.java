@@ -11,4 +11,5 @@ public interface GameService {
     Player findPlayerByUsername(String playerName);
     List<Player> findAllPlayers();
     void updatePlayer(Player player, int highScore);
+    List<Player> findAllPlayersByHighScore();
 }

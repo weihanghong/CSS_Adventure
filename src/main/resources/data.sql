@@ -1,0 +1,1 @@
+UPDATE players SET high_score = 23 WHERE id=1;

@@ -7,7 +7,14 @@
 </head>
 <body>
     <div th:replace="fragments :: navbar(${player})"></div>
-    <div id="content"></div>
+    <div id="content">
+        <div th:each="achievement: ${achievements}">
+            <div class="achievement">
+                <div th:text="${achievement.name}" style="font-weight: bold"></div>
+                <div th:text="${achievement.description}"></div>
+            </div>
+        </div>
+    </div>
     <div th:replace="fragments :: hill"></div>
 </body>
 </html>

@@ -7,7 +7,11 @@
 </head>
 <body>
     <div th:replace="fragments :: navbar(${player})"></div>
-    <div id="content"></div>
+    <div id="content">
+        <div th:each="skin: ${skins}">
+            <div th:class="${skin.name}"></div>
+        </div>
+    </div>
     <div th:replace="fragments :: hill"></div>
 </body>
 </html>

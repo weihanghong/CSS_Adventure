@@ -1,7 +1,11 @@
 package com.hong.css_adventure.controllers;
 
+import com.hong.css_adventure.models.Achievement;
 import com.hong.css_adventure.models.Player;
+import com.hong.css_adventure.models.Skin;
+import com.hong.css_adventure.repositories.AchievementRepository;
 import com.hong.css_adventure.service.GameService;
+import com.hong.css_adventure.service.SkinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -17,10 +21,14 @@ import java.util.List;
 public class GameController {
 
     private final GameService gameService;
+    private final SkinService skinService;
+    private final AchievementRepository achievementRepository;
 
     @Autowired
-    public GameController(GameService gameService) {
+    public GameController(GameService gameService, SkinService skinService, AchievementRepository achievementRepository) {
         this.gameService = gameService;
+        this.skinService = skinService;
+        this.achievementRepository = achievementRepository;
     }
 
     /**
@@ -91,6 +99,8 @@ public class GameController {
     public String checkAchievements(Model model, @AuthenticationPrincipal User user) {
         Player player = gameService.findPlayerByUsername(user.getUsername());
         model.addAttribute("player", player);
+        List<Achievement> achievements = achievementRepository.findAll();
+        model.addAttribute("achievements", achievements);
         return "achievements";
     }
 
@@ -103,7 +113,9 @@ public class GameController {
     @GetMapping("/character")
     public String character(Model model, @AuthenticationPrincipal User user) {
         Player player = gameService.findPlayerByUsername(user.getUsername());
+        List<Skin> skins = skinService.findAllSkins();
         model.addAttribute("player", player);
+        model.addAttribute("skins", skins);
         return "character";
     }
 
@@ -115,13 +127,9 @@ public class GameController {
      */
     @GetMapping("/leaderboard")
     public String showLeaderboard(Model model, @AuthenticationPrincipal User user) {
-        if(user != null) {
-            Player player = gameService.findPlayerByUsername(user.getUsername());
-            model.addAttribute("player", player);
-        } else {
-            model.addAttribute("player", null);
-        }
-        List<Player> players = gameService.findAllPlayers();
+        Player player = gameService.findPlayerByUsername(user.getUsername());
+        model.addAttribute("player", player);
+        List<Player> players = gameService.findAllPlayersByHighScore();
         model.addAttribute("players", players);
         return "leaderboard";
     }

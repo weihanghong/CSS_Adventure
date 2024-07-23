@@ -7,7 +7,14 @@
 </head>
 <body>
     <div th:replace="fragments :: navbar(${player})"></div>
-    <div id="content"></div>
+    <div id="content">
+        <table th:each="p: ${players}" id="ranking">
+            <tr>
+                <th th:text="${p.username}" style="width: 100px"></th>
+                <td th:text="${p.highScore}" style="width: 100px"></td>
+            </tr>
+        </table>
+    </div>
     <div th:replace="fragments :: hill"></div>
 </body>
 </html>
